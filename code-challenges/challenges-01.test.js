@@ -79,7 +79,7 @@ const speaker = (words, callback) => {
   // Solution code here...
   let myArray = [];
   words.forEach(function(value) {
-    myArray.push(greeting(value));
+    myArray.push(callback(value));
   })
   return myArray;
   
@@ -103,10 +103,16 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (let i=0; i< times; i++){
+    callback(arr, num);
+  }
+  return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,7 +135,14 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
-};
+  const list = [];
+ availableItems.forEach( (item)=>{
+  if(item.available == true){
+  list.push(item.name);
+  };
+  });
+  return list;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
