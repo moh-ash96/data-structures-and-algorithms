@@ -37,6 +37,7 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 
 const containsAnd = (arr) => {
   // Solution code here...
+  return arr.filter(str=> str.includes('and'))
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -49,6 +50,7 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  return arr.filter(int=> int %2);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,6 +66,9 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  const regex = /[aeiou]/g;
+  console.log(regex)
+  return arr.filter(str=> str.match(regex));
 };
 
 
@@ -77,6 +82,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  return arr.filter(item => {if(forbiddenValues.includes(item) == false){return true}})
 };
 
 /* ------------------------------------------------------------------------------------------------
