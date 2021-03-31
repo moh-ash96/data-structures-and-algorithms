@@ -18,9 +18,13 @@ Becomes:
 ]
 ------------------------------------------------------------------------------------------------ */
 
-function transformToLis(obj){
+function transformToLis(obj) {
   // Solution code here...
-
+  let newArr = [];
+  for (let property in obj) {
+    newArr.push(`<li>${property}: ${obj[property]}</li>`)
+  }
+  return newArr
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,7 +36,8 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 const addValues = (arr) => {
   // Solution code here...
-  arr.reduce();
+ return arr.reduce((accumulator, value) =>{
+    return accumulator + value},0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -49,6 +54,7 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 const addPurchases = (arr) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,7 +93,8 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'},
+  gender: 'n/a'
+},
 {
   name: 'R2-D2',
   height: '96',
@@ -290,8 +297,8 @@ Run your tests from the console: jest challenges-09.test.js
 
 describe('Testing challenge 1', () => {
   test('It should return a list of key value pairs inside of li tags', () => {
-    expect(transformToLis({name: 'bob', age: 32})[0]).toStrictEqual(`<li>name: bob</li>`);
-    expect(transformToLis({name: 'bob', age: 32})[1]).toStrictEqual(`<li>age: 32</li>`);
+    expect(transformToLis({ name: 'bob', age: 32 })[0]).toStrictEqual(`<li>name: bob</li>`);
+    expect(transformToLis({ name: 'bob', age: 32 })[1]).toStrictEqual(`<li>age: 32</li>`);
     expect(transformToLis({})).toStrictEqual([]);
   });
 });
@@ -306,7 +313,7 @@ describe('Testing challenge 2', () => {
 
 describe('Testing challenge 3', () => {
   test('It should add the purchase price', () => {
-    expect(addPurchases([{item: 'switch', purchasePrice: 399}, {item: 'toothpaste', purchasePrice: 2}])).toStrictEqual(401);
+    expect(addPurchases([{ item: 'switch', purchasePrice: 399 }, { item: 'toothpaste', purchasePrice: 2 }])).toStrictEqual(401);
     expect(addPurchases([])).toStrictEqual(0);
   });
 });
@@ -319,7 +326,7 @@ describe('Testing challenge 4', () => {
 
 describe('Testing challenge 5', () => {
   test('It should return an array continaing the names of the characters', () => {
-    expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
+    expect(returnNames(starWarsData)).toStrictEqual(['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa']);
     expect(returnNames(starWarsData).length).toStrictEqual(5);
   });
 });
@@ -338,7 +345,7 @@ xdescribe('Testing challenge 7', () => {
 
 xdescribe('Testing challenge 8', () => {
   test('It should return the average of the numbers in the array', () => {
-    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
+    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85])).toStrictEqual(64);
   });
 });
 
@@ -356,7 +363,7 @@ xdescribe('Testing challenge 10', () => {
 
 xdescribe('Testing challenge 11', () => {
   test('It should return an array containing the names of the children', () => {
-    expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
+    expect(extractChildren(characters)).toStrictEqual(['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras']);
     expect(extractChildren(characters).length).toStrictEqual(10);
   });
 });
