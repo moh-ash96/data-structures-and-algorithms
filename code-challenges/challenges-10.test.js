@@ -24,7 +24,12 @@ Returns: ['dyoll', 'eimaj'];
 
 const getNames = (arr) => {
   // Solution code here...
-};
+  let newArr= [];
+  arr.map(obj=>{
+    newArr.push(obj.name.split('').reverse().join('')) 
+  })
+  return newArr;
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -38,6 +43,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  let count = 0;
+  input.map(arr=>{
+    arr.map(str=>{
+      if(str == target){
+        count++
+      }
+    })
+  })
+  return count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -52,6 +66,14 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  let array= [];
+  let array2;
+  const reducer = (accu,value)=>accu + value
+  input.map(arr=>{
+  array.push(arr.reduce(reducer));
+ 	array2 = array.reduce(reducer);
+  })
+  return array2
 };
 
 /* ------------------------------------------------------------------------------------------------
