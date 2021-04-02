@@ -24,12 +24,12 @@ Returns: ['dyoll', 'eimaj'];
 
 const getNames = (arr) => {
   // Solution code here...
-  let newArr= [];
-  arr.map(obj=>{
-    newArr.push(obj.name.split('').reverse().join('')) 
+  let newArr = [];
+  arr.map(obj => {
+    newArr.push(obj.name.split('').reverse().join(''))
   })
   return newArr;
-  };
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -44,16 +44,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 const count = (target, input) => {
   // Solution code here...
   let count = 0;
-  input.map(arr=>{
-    arr.map(str=>{
-      if(str == target){
+  input.map(arr => {
+    arr.map(str => {
+      if (str == target) {
         count++
       }
     })
   })
   return count;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -66,15 +65,16 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
-  let array= [];
+  let array = [];
   let array2;
-  const reducer = (accu,value)=>accu + value
-  input.map(arr=>{
-  array.push(arr.reduce(reducer));
- 	array2 = array.reduce(reducer);
+  const reducer = (accu, value) => accu + value
+  input.map(arr => {
+    array.push(arr.reduce(reducer));
+    array2 = array.reduce(reducer);
   })
   return array2
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -156,6 +156,15 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  let array = [];
+  let str;
+  data.map(obj => {
+    if (obj.gender === 'male' || obj.gender == 'female') {
+      array.push(obj.name);
+    }
+   str = array.join(' and ')
+  });
+  return str;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -163,9 +172,33 @@ CHALLENGE 6
 
 Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the shortest character.
 ------------------------------------------------------------------------------------------------ */
-
 let findShortest = (data) => {
   // Solution code here...
+
+function compareValues(key) {
+  return function innerSort(a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      // property doesn't exist on either object
+      return 0;
+    }
+
+const varA = (typeof a[key] === 'string')
+      ? a[key].toUpperCase() : a[key];
+    const varB = (typeof b[key] === 'string')
+      ? b[key].toUpperCase() : b[key];
+
+    let comparison = 0;
+    if (varA > varB) {
+      comparison = 1;
+    } else if (varA < varB) {
+      comparison = -1;
+    }
+    return (
+       comparison*-1
+    );
+  };
+}
+return data.sort(compareValues('height'))[0].name
 };
 
 /* ------------------------------------------------------------------------------------------------
