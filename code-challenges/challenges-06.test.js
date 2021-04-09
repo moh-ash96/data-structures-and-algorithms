@@ -151,10 +151,13 @@ For example:
 hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
-
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  let arr2 = [];
+  arr.forEach(obj=>{
+  obj.name === character? arr2.push(obj.children): console.log('hi');
+  })
+ 	return arr2[0] === undefined ? false: true
 };
 
 /* ------------------------------------------------------------------------------------------------
