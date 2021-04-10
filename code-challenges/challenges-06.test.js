@@ -151,7 +151,6 @@ For example:
 hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
-
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
   let arr2 = [];
