@@ -1,15 +1,16 @@
-# Data Structures and Algorithms
+# Reverse an Array
 
-See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-code-challenges), in the Code 301 Setup Guide.
+ I was asked to reverse a list using Python
 
-## Repository Quick Tour and Usage
+## Challenge
 
-### 301 Code Challenges
+The challenge is about taking an input list and returning it in the reversed order
 
-Under the `data-structures-and-algorithms` repository, at the top level is a folder called `code-challenges`
+## Approach & Efficiency
 
-Each day, you'll add one new file to this folder to do your work for the day's assigned code challenge
+I used for loop to iterate through the list and push each element to the end.
+I guess it is O(N)
 
-### 401 Data Structures, Code Challenges
+## Solution
 
-- Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
+![White_Board](Assets/Array-reverse.jpg)
