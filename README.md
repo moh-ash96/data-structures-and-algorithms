@@ -48,3 +48,22 @@ I used for loop to find the length of the array, then while loop to compare betw
 * solution
 
 ![White_Board](Assets/Binary.jpg)
+
+## linked list
+
+I was asked to create a linked list that I can insert into, check a value inside, and it should return a string of contents
+
+* Challenge
+
+The challenge is that it is a new thing to know, I even don't think I completely get it, but it will get better
+
+* Approach & Efficiency
+
+for the insertion I used O(1) method which inserts at the beginning of the list
+and for the includes method, i used Traversal
+
+O(N)
+
+* Solution
+
+![White_Board](Assets/linked_list.png)
