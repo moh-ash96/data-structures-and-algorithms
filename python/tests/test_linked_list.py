@@ -1,5 +1,44 @@
-from linked_list.linked_list import LinkedList
+import pytest
+
+from code_challenges.linked_list.linked_list import Node,Linked_list
 
 
 def test_import():
-    assert LinkedList
+    assert Linked_list
+
+l_list = Linked_list()
+
+def test_empty():
+    actual  = l_list.head
+    expect = None
+    assert actual == expect
+
+def test_insert():
+    l_list.insert(5)
+    actual = l_list.includes(5)
+    expect = True
+    assert actual == expect
+
+def test_head():
+    l_list.insert(5)
+    l_list.insert(10)
+    l_list.insert(18)
+    actual = l_list.head.value
+    expect = 18
+    assert actual == expect
+    actual2 = l_list.head.next.value
+    expect2 = 10
+    assert actual2 == expect2
+
+def test_true_false():
+    actual = l_list.includes(10)
+    expect = True
+    assert actual == expect
+    actual2 = l_list.includes(7)
+    expect2 = False
+    assert actual2 == expect2
+
+def test_return():
+    actual = l_list.__str__()
+    expect = "{18}->{10}->{5}->{5}->None"
+    assert actual == expect
