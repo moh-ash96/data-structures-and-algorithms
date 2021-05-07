@@ -37,18 +37,19 @@ O(N)
 
 ## linked list
 
-I was asked to add a value in the middle of a list.
+I was asked to create a linked list that I can insert into, check a value inside, and it should return a string of contents
 
 * Challenge
 
-The challenge is about taking two inputs a list and a value and adding the value in the middle of the list
+The challenge is that it is a new thing to know, I even don't think I completely get it, but it will get better
 
 * Approach & Efficiency
 
-I used for loop to find out the middle of the list the added the value as an index of the list
+for the insertion I used O(1) method which inserts at the beginning of the list
+and for the includes method, i used Traversal
 
 O(N)
 
 * Solution
 
-![White_Board](Assets/shift.png)
+![White_Board](Assets/linked_list.png)
