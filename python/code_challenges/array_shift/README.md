@@ -14,4 +14,4 @@ O(n)
 
 ## Solution
 
-![White_Board](Assets/shift.png)
+![White_Board](../../../Assets/shift.png)

@@ -13,4 +13,4 @@ I guess it is O(N)
 
 ## Solution
 
-![White_Board](Assets/Array-reverse.jpg)
+![White_Board](../../../Assets/Array-reverse.jpg)

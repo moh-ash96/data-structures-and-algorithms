@@ -12,4 +12,4 @@ I used for loop to find the length of the array, then while loop to compare betw
 
 ## solution
 
-![White_Board](Assets/Binary.jpg)
+![White_Board](../../../Assets/Binary.jpg)
