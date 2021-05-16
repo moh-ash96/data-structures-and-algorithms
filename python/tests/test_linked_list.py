@@ -42,3 +42,15 @@ def test_return():
     actual = l_list.__str__()
     expect = "{18}->{10}->{5}->{5}->None"
     assert actual == expect
+
+def test_append():
+    l_list.append(8)
+    actual = l_list.__str__()
+    expect = "{18}->{10}->{5}->{5}->{8}->None"
+    assert actual == expect
+
+def test_insert_after():
+    l_list.insertAfter(10, 6)
+    actual = l_list.__str__()
+    expect = "{18}->{10}->{6}->{5}->{5}->{8}->None"
+    assert actual == expect

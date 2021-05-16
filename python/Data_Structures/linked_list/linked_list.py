@@ -61,16 +61,15 @@ class Linked_list():
 
         last.next = new_node
 
-    def insertAfter(self, value, new_value):
+    def insertAfter(self, val, new_value):
 
-        if value is None:
-            print("The value to put after is not in the Node")
-            return
+        if val is None:
+            return print("The value to insert after is not in the Node")
         else:
             current = self.head
             new_node = Node(new_value)
             while current:
-                if current.data == value:
+                if current.value == val:
                     new_node.next = current.next
                     current.next = new_node
                 current = current.next
