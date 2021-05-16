@@ -48,3 +48,32 @@ class Linked_list():
         except:
             print("Internal Error, Can't access list")
 
+    def append(self, val):
+        new_node = Node(val)
+
+        if self.head is None:
+            self.head = new_node
+            return
+
+        last = self.head
+        while (last.next):
+            last = last.next
+
+        last.next = new_node
+
+    def insertAfter(self, value, new_value):
+
+        if value is None:
+            print("The value to put after is not in the Node")
+            return
+        else:
+            current = self.head
+            new_node = Node(new_value)
+            while current:
+                if current.data == value:
+                    new_node.next = current.next
+                    current.next = new_node
+                current = current.next
+
+
+
