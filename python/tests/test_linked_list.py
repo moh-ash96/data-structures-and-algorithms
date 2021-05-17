@@ -1,5 +1,7 @@
 import pytest
 
+from unittest.mock import patch
+
 from Data_Structures.linked_list.linked_list import Node, Linked_list
 
 
@@ -69,3 +71,46 @@ def test_insert_before():
     actual = l_list.__str__()
     expect = "{18}->{10}->{20}->{6}->{5}->{5}->{8}->None"
     assert actual == expect
+
+
+
+
+@patch('builtins.print')
+def test_kth_from_end(mock_print):
+    l_list.kthFromEnd(5)
+    mock_print.assert_called_with(10)
+
+@patch('builtins.print')
+def test_k_is_greater_than_list_length(mock_print):
+    l_list.kthFromEnd(10)
+    mock_print.assert_called_with('kth is greater than the linked-list')
+
+@patch('builtins.print')
+def test_k_and_len_are_the_same(mock_print):
+    l_list.kthFromEnd(7)
+    mock_print.assert_called_with(18)
+
+
+@patch('builtins.print')
+def test_negative_value(mock_print):
+    l_list.kthFromEnd(-1)
+    mock_print.assert_called_with('k should be a larger or equal to 0')
+
+@patch('builtins.print')
+def test_k_in_the_middle(mock_print):
+    l_list.kthFromEnd(2,2)
+    mock_print.assert_called_with(10)
+
+@patch('builtins.print')
+def test_empty_ll(mock_print):
+    l_list.empty_ll()
+    l_list.kthFromEnd(1)
+    mock_print.assert_called_with("linked list is empty")
+
+@patch('builtins.print')
+def test_linked_list_one_node(mock_print):
+    l_list.insert(1)
+    l_list.kthFromEnd(0)
+    mock_print.assert_called_with(1)
+
+
