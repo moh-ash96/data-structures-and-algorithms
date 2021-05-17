@@ -12,4 +12,4 @@ The challenge is getting to merge two functions which are find and insert.
 
 ## Whiteboard
 
-![insertions](http://replit.com/)
+![insertions](/Assets/linked_list_insert_after.png)
