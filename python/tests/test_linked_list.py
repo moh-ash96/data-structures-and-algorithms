@@ -69,3 +69,42 @@ def test_insert_before():
     actual = l_list.__str__()
     expect = "{18}->{10}->{20}->{6}->{5}->{5}->{8}->None"
     assert actual == expect
+
+@pytest.mark.skip
+def test_kth_from_end():
+    actual = l_list.kthFromEnd(5)
+    expect = 10
+    assert actual == expect
+
+@pytest.mark.skip
+def test_k_is_greater_than_list_length():
+    actual = l_list.kthFromEnd(10)
+    expect = 'kth is greater than the linked-list'
+    assert actual == expect
+
+@pytest.mark.skip
+def test_k_and_len_are_the_same():
+    actual = l_list.kthFromEnd(7)
+    expect = 18
+    assert actual == expect
+
+@pytest.mark.skip
+def test_negative_value():
+    actual = l_list.kthFromEnd(-1)
+    expect = 'k should be a larger or equal to 0'
+    assert actual == expect
+
+@pytest.mark.skip
+def test_empty_ll():
+    l_list.empty_ll()
+    actual = l_list.kthFromEnd(1)
+    expect = "linked list is empty"
+    assert actual == expect
+
+@pytest.mark.skip
+def test_linked_list_one_node():
+    l_list.insert(1)
+    actual = l_list.kthFromEnd(0)
+    expect = 1
+    assert actual == expect
+
