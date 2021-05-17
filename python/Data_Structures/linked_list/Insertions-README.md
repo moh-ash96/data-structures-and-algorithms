@@ -8,10 +8,7 @@ The challenge is getting to merge two functions which are find and insert.
 
 ## Approach & Efficiency
 
-<!-- for the insertion I used O(1) method which inserts at the beginning of the list
-and for the includes method, i used Traversal
-
-O(n) -->
+    O(n) for time and space for the three of functions
 
 ## Whiteboard
 

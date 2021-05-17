@@ -74,5 +74,26 @@ class Linked_list():
                     current.next = new_node
                 current = current.next
 
+    def insertBefore(self, val, new_value):
+
+        newNode = Node(new_value)
+
+        current = self.head
+        if current == None:
+            return print('The linked list is empty')
+        else:
+            if current.value == val:
+                newNode.next = self.head
+                self.head = newNode
+
+            while current.next:
+                if current.next.value == val:
+                    newNode.next = current.next
+                    current.next = newNode
+                    return
+                else:
+                    current = current.next
+            print('The value to insert before is not in the Node')
+
 
 
