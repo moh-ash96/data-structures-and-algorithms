@@ -8,8 +8,8 @@ The challenge was trying to find out how get to the last node and count backward
 
 ## Approach & Efficiency
 
-    O(n) for time and space for the three of functions
+    O(N) for time and space
 
 ## Whiteboard
 
-![insertions](/Assets/kth.png)
+![kth](/Assets/kth.png)
