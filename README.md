@@ -8,3 +8,4 @@
 |Linked List|[Linked-list](python/Data_Structures/linked_list/README.md)|
 |LL Insertions|[ll-Insertions](python/Data_Structures/linked_list/Insertions-README.md)|
 |LL kth from the end|[ll-kth](python/Data_Structures/linked_list/Kth-README.md)
+|Stacks and Queues|[Stacks & Queues](python/Data_Structures/stacks_and_queues/README.md)
