@@ -1,21 +1,47 @@
 from Data_Structures.linked_list.linked_list import Node, Linked_list
 
 def zipLists(list1, list2):
-  new_list = Linked_list()
-  current1 = list1.head
-  current2 = list2.head
-  while current1.next and current2.next:
-    current1_next = current1.next
-    current2_next = current2.next
+    '''
+    A function that takes two linked lists and merges them into one
+    '''
+    first = list1
+    second = list2
 
-    current2.next = current1_next
-    current1.next = current2_next
+    current1 = first.head
+    current2 = second.head
 
-    current2 = current2_next
-    current1 = current1_next
-    new_list.insert(current2.value)
-    new_list.insert(current1.value)
+    length1 =0
+    length2 =0
 
-  return new_list
+    while(current1):
+      length1 += 1
+      current1 = current1.next
+
+    while(current2):
+      length2 += 1
+      current2 = current2.next
+
+    if length1 < length2:
+      temp =first
+      first = second
+      second =temp
+
+    linked_first = first.head
+    linked_second = second.head
+
+    while linked_first and linked_second:
+
+      first_next = linked_first.next
+      second_next = linked_second.next
+
+      linked_second.next = first_next
+      linked_first.next = linked_second
+
+      linked_first = first_next
+      linked_second = second_next
+
+      second.head = linked_second
+
+    return f'{first}'
 
 

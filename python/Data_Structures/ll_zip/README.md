@@ -9,8 +9,9 @@ The challenge is that I need to go through two lists and work with them as itera
 ## Approach & Efficiency
 
 Big O Notation:
-O(N)
+O(N) --> time
+O(1) -->space
 
 ## Whiteboard
 
-![ll-zip](/Assets/ll_zip.png)
+![ll-zip](/Assets/zip-ll.png)
