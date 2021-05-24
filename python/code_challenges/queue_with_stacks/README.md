@@ -12,4 +12,4 @@ I used a O(n) for time and space.
 
 ## Whiteboard
 
-![queue_of_stacks](/Assets/queueOfS.png)
+![queue_of_stacks](/Assets/queue-of-s.png)
