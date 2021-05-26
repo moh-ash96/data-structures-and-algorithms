@@ -1,3 +1,14 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "cSpell.ignoreWords": [
+        "dog",
+        "else",
+        "front",
+        "if",
+        "next",
+        "node",
+        "not",
+        "rear",
+        "self"
+    ]
 }
