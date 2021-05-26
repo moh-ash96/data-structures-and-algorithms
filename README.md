@@ -8,7 +8,7 @@
 |Linked List|[Linked-list](python/Data_Structures/linked_list)|
 |LL Insertions|[ll-Insertions](python/Data_Structures/linked_list)|
 |LL kth from the end|[ll-kth](python/Data_Structures/linked_list/)|
-|ll zip|[ll-zip](python/Data_Structures/ll_zip/README.md)|
-|Stacks and Queues|[Stacks & Queues](python/Data_Structures/stacks_and_queues/README.md)|
-|Queu With Stacks |[Queue With Stacks](python/code_challenges/queue_with_stacks)|
-
+|ll zip|[ll-zip](python/Data_Structures/ll_zip/)|
+|Stacks and Queues|[Stacks & Queues](python/Data_Structures/stacks_and_queues/)|
+|Queue With Stacks |[Queue With Stacks](python/code_challenges/queue_with_stacks)|
+|Animal shelter|[Animal Shelter](python/code_challenges/fifo_animal_shelter/)|
