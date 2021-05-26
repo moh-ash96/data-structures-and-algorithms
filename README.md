@@ -11,4 +11,4 @@
 |ll zip|[ll-zip](python/Data_Structures/ll_zip/)|
 |Stacks and Queues|[Stacks & Queues](python/Data_Structures/stacks_and_queues/)|
 |Queue With Stacks |[Queue With Stacks](python/code_challenges/queue_with_stacks)|
-|Animal shelter|[Animal Shelter](pythin/code_challenges/fifo_animal_shelter/)|
+|Animal shelter|[Animal Shelter](python/code_challenges/fifo_animal_shelter/)|

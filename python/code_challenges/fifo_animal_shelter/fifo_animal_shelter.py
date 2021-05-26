@@ -1,30 +1,3 @@
-class Node:
-    def __init__(self, value=None):
-        self.value = value
-        self.next = None
-
-# class Queue:
-#     def __init__(self):
-#         self.front = None
-#         self.rear = None
-
-#     def enqueue(self, value):
-#         """ Add an item to the rear fo the queue """
-#         node = Node(value)
-
-#         if not self.front:
-#             self.front = node
-#             self.rear = node
-#         else:
-#             self.rear = self.rear.next
-
-#     def dequeue(self):
-#         temp = self.front
-#         self.front = self.front.next
-#         temp.next = None
-#         return temp.value
-
-
 class Cats:
     def __init__(self,value = "cat"):
         self.value = value
@@ -42,21 +15,10 @@ class AnimalShelter:
 
     def enqueue(self, value):
         """ Add an item to the rear fo the queue """
-        if isinstance(value, Cats):
-        # if value == 'cat':
-            # cat = Queue()
-            # cat.enqueue(value)
+        if value.lower() == 'cat':
             node = Cats()
-            # if not self.front:
-            #     self.front = node
-            #     self.rear = node
 
-            # else:
-            #     self.rear = self.rear.next
-        elif isinstance(value, Dogs):
-        # if value == 'dog':
-            # dog = Queue()
-            # dog.enqueue(value)
+        elif value.lower() == 'dog':
             node = Dogs()
         else:
             node = None
@@ -68,22 +30,34 @@ class AnimalShelter:
             self.rear.next = node
             self.rear = node
 
+    def dequeue(self, pref):
+        animal = None
+        if pref.lower() == 'dog' or pref.lower() == 'cat':
+            temp = self.front.value
+            if str(temp) == pref:
+                animal = str(temp)
+                self.front = self.front.next
+            else:
+                previous = self.front
+                temp = previous
+                while temp:
+                    if str(temp.value) == pref:
+                        dequeued = temp
+                        animal = str(dequeued.value)
+                        previous.next = dequeued.next
+                        break
+                    previous = temp
+                    temp = temp.next
+            return animal
+        else:
+            return animal
+
+
     def __str__(self):
         current = self.front
         items = []
         while current:
             items.append(str(current.value))
             current = current.next
-            # print(current)
-        print(items)
         return "\n".join(items)
 
-
-
-tom = Cats()
-spike = Dogs()
-shell = AnimalShelter()
-shell.enqueue(tom)
-shell.enqueue(spike)
-
-print(shell.__str__())
