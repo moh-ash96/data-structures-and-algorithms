@@ -13,3 +13,4 @@
 |Queue With Stacks |[Queue With Stacks](python/code_challenges/queue_with_stacks)|
 |Animal shelter|[Animal Shelter](python/code_challenges/fifo_animal_shelter/)|
 |Multi Bracket Validation|[Multi Bracket Validation](python/code_challenges/multi-bracket-validation/)|
+|Tree|[Tree](python/code_challenges/tree/)|
