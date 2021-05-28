@@ -39,8 +39,8 @@ class BinaryTree:
             if root.right:
                 walk(root.right)
 
-            walk(self.root)
-            return self.tree_list
+        walk(self.root)
+        return self.tree_list
 
 
     def post_order(self):
