@@ -1,3 +1,7 @@
+class Empty_tree_exception(Exception):
+    def __init__(self):
+        pass
+
 class TNode:
   def __init__(self, value=None):
     self.value = value
@@ -57,6 +61,24 @@ class BinaryTree:
             self.tree_list.append(root.value)
         walk(self.root)
         return self.tree_list
+
+
+    def find_maximum_value(self):
+        def max(arr):
+            current = arr[0]
+            for i in arr:
+                if i > current:
+                    current=i
+            return current
+        if not self.root:
+            raise Empty_tree_exception
+        else:
+            my_list = self.pre_order()
+        return max(my_list)
+
+
+
+
 
     def __str__(self):
 
