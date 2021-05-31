@@ -76,6 +76,41 @@ class BinaryTree:
             my_list = self.pre_order()
         return max(my_list)
 
+    # def breadth_first(self, b_tree):
+    #     roots = []
+    #     root = b_tree.root
+    #     self.tree_list = []
+    #     self.tree_list.append(roots[0].value)
+    #     def inner_function(roots):
+    #         for root in roots:
+    #             left = root.left
+    #             right = root.right
+    #             self.tree_list.append(root.left)
+    #             roots.append(left)
+    #             self.tree_list.append(root.right)
+    #             roots.append(right)
+
+    def breadth_first(self, b_tree):
+
+        if b_tree.root is None:
+            raise Exception('Tree is empty')
+
+        queue = []
+        output = []
+
+        queue.append(b_tree.root)
+
+        while(len(queue) > 0):
+
+            output.append(queue[0].value)
+            node = queue.pop(0)
+
+            if node.left is not None:
+                queue.append(node.left)
+
+            if node.right is not None:
+                queue.append(node.right)
+        return output
 
 
 
