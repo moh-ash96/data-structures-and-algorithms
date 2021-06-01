@@ -1,4 +1,4 @@
-from tree import BinaryTree, TNode
+from code_challenges.fizz_buzz_tree.tree import BinaryTree, TNode
 
 class Empty_tree_exception(Exception):
 	def __init__(self):
@@ -68,8 +68,9 @@ class Queue():
 
 
 
-def fizz_buzz_tree(Binary_tree):
-  def fuzz_buzz(value):
+def fizz_buzz_tree(tree):
+
+  def fizz_buzz(value):
       if value % 3 == 0 and value % 5 == 0:
           return 'FizzBuzz'
       elif value % 3 == 0:
@@ -77,39 +78,41 @@ def fizz_buzz_tree(Binary_tree):
       elif value % 5 == 0:
           return "Buzz"
       else:
-          return value
+          return str(value)
 
-
-  root = Binary_tree.root
+  root = tree.root
   new_root = TNode(root.value)
   new_tree = BinaryTree(new_root)
   if not new_root:
     raise Empty_tree_exception('Tree is EMPTY')
+
   roots = Queue()
   roots.enqueue(root)
-  new_root.value = fuzz_buzz(new_root.value)
-  new_rootsque = Queue()
-  new_rootsque.enqueue(new_root)
+  new_root.value = fizz_buzz(new_root.value)
+  new_rootsqueue = Queue()
+  new_rootsqueue.enqueue(new_root)
+
   def inner_func(roots):
     for num in range(len(roots)):
       left = roots.peek().left
       right = roots.peek().right
       roots.dequeue()
       if left:
-        new_left = TNode(fuzz_buzz(left.value))
-        new_rootsque.peek().left = new_left
+        new_left = TNode(fizz_buzz(left.value))
+        new_rootsqueue.peek().left = new_left
         roots.enqueue(left)
-        new_rootsque.enqueue(new_left)
+        new_rootsqueue.enqueue(new_left)
       if right:
-        new_right = TNode(fuzz_buzz(right.value))
-        new_rootsque.peek().right = new_right
+        new_right = TNode(fizz_buzz(right.value))
+        new_rootsqueue.peek().right = new_right
         roots.enqueue(right)
-        new_rootsque.enqueue(new_right)
-      new_rootsque.dequeue()
+        new_rootsqueue.enqueue(new_right)
+      new_rootsqueue.dequeue()
     if len(roots) > 0:
       inner_func(roots)
   inner_func(roots)
   return new_tree
+
 
 
 
