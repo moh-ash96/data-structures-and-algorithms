@@ -14,3 +14,4 @@
 |Animal shelter|[Animal Shelter](python/code_challenges/fifo_animal_shelter/)|
 |Multi Bracket Validation|[Multi Bracket Validation](python/code_challenges/multi-bracket-validation/)|
 |Tree|[Tree](python/code_challenges/tree/)|
+|Fizz_Buzz|[fizz](python/code_challenges/fizz_buzz_tree)|
