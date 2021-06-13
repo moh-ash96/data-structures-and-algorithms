@@ -15,3 +15,4 @@
 |Multi Bracket Validation|[Multi Bracket Validation](python/code_challenges/multi-bracket-validation/)|
 |Tree|[Tree](python/code_challenges/tree/)|
 |Fizz_Buzz|[fizz](python/code_challenges/fizz_buzz_tree)|
+|Insertion_Sort|[Insertion Sort](python/code_challenges/insertion_sort)|
