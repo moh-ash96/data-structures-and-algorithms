@@ -16,3 +16,5 @@
 |Tree|[Tree](python/code_challenges/tree/)|
 |Fizz_Buzz|[fizz](python/code_challenges/fizz_buzz_tree)|
 |Insertion_Sort|[Insertion Sort](python/code_challenges/insertion_sort)|
+|Merge Sort|[Merge Sort](python/code_challenges/merge_sort)|
+|Quick Sort|[Quick Sort](python/code_challenges/quick_sort)|
