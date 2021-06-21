@@ -1,7 +1,7 @@
 from Data_Structures.hashtable.hashtable import Hashtable
 from code_challenges.tree.tree import BinaryTree, TNode
 
-def tree_insertion(binary1, binary2):
+def tree_intersection(binary1, binary2):
     arr = []
     tree1 = binary1.pre_order()
     tree2 = binary2.pre_order()
@@ -11,8 +11,10 @@ def tree_insertion(binary1, binary2):
     for root in tree2:
         if hash.contains(str(root)):
             arr.append(root)
-
-    return arr
+    if len(arr) == 0:
+        return 'There are no intersections'
+    else:
+        return arr
 
 
 if __name__ == "__main__":
@@ -44,7 +46,7 @@ if __name__ == "__main__":
 
     binary_tree2 = BinaryTree(node2)
 
-    print(tree_insertion(binary_tree, binary_tree2))
+    print(tree_intersection(binary_tree, binary_tree2))
 
 
 

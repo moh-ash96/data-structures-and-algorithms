@@ -20,3 +20,4 @@
 |Quick Sort|[Quick Sort](python/code_challenges/quick_sort)|
 |HashTable|[HashTable](python/Data_Structures/hashtable)|
 |Repeated word|[Repeated](python/code_challenges/repeated_word)|
+|Tree Intersection|[Intersection](python/code_challenges/tree_intersection)|
