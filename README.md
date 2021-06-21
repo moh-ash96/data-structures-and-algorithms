@@ -19,3 +19,4 @@
 |Merge Sort|[Merge Sort](python/code_challenges/merge_sort)|
 |Quick Sort|[Quick Sort](python/code_challenges/quick_sort)|
 |HashTable|[HashTable](python/Data_Structures/hashtable)|
+|Repeated word|[Repeated](python/code_challenges/repeated_word)|
