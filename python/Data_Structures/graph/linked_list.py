@@ -39,22 +39,12 @@ class Linked_list():
         '''
         output = ''
         current = self.head
-        try:
+        if current:
             while current:
-                output += f"{ {current.value} }->"
+                output += f"{ current.value }->"
                 current = current.next
             output += f"{None}"
             return output
-        except:
-            print("Internal Error, Can't access list")
-
-
-    def __iter__(self):
-        current= self.head
-        while current:
-            yield current.value
-            current = current.next
-
 
     def append(self, val):
         new_node = Node(val)
@@ -131,7 +121,16 @@ class Linked_list():
                 current = current.next
             print(current.value)
 
+
+    def __iter__(self):
+
+        current = self.head
+        while current:
+            yield current.value
+            current = current.next
+
+
+
     def empty_ll(self):
         self.head = None
         return
-
