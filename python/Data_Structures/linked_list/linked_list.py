@@ -48,6 +48,14 @@ class Linked_list():
         except:
             print("Internal Error, Can't access list")
 
+
+    def __iter__(self):
+        current= self.head
+        while current:
+            yield current.value
+            current = current.next
+
+
     def append(self, val):
         new_node = Node(val)
 
