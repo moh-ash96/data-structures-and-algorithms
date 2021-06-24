@@ -1,113 +1,102 @@
-from Data_Structures.graph.linked_list import Linked_list, Node
+from collections import deque
 
-class GNode():
+class Vertex():
     def __init__(self, value):
         self.value = value
-        self.edges = []
 
-    def __str__(self):
-        return f"{self.value}"
+    # def __str__(self):
+    #     return f"{self.value}"
+
+class Edge:
+  def __init__(self, vertex, weight):
+    self.vertex = vertex
+    self.weight = weight
+
+class Queue():
+  def __init__(self):
+    self.dq = deque()
+
+  def enqueue(self, value):
+    self.dq.appendleft(value)
+
+  def dequeue(self):
+    return self.dq.pop()
+
+  def __len__(self):
+    return len(self.dq)
+
+class Stack():
+  pass #we can use dq for that
 
 class Graph():
 
     def __init__(self):
-        self.nodes = []
+        self._adjacency_list = {}
 
 
     def add_node(self, value):
-        node = GNode(value)
-        lst = Linked_list()
-        lst.head = node
-        self.nodes.append(lst)
-        return node
+        v = Vertex(value)
+        self._adjacency_list[v] = []
+        return v
 
 
 
-    def add_edge(self, node1, node2=None, weight = 1):
-        first_list = None
-        second_list = None
-        if node2 == None:
-            weight = 0
+    def add_edge(self, start, end=None, weight = 0):
 
-        if len(self.nodes) >0:
-            for lst in self.nodes:
-                if lst.head.value == node1:
-                    first_list = lst
-                elif lst.head.value == node2:
-                    second_list = lst
-            if first_list or second_list:
-                if first_list:
-                    if second_list:
-                        first_list.head.edges.append([second_list.head,weight])
-                    else:
-                        first_list.head.edges.append([second_list,weight])
-                if second_list:
-                    if first_list:
-                        second_list.head.edges.append([first_list.head,weight])
-                    else:
-                        second_list.head.edges.append([first_list,weight])
+      if start not in self._adjacency_list:
+        raise KeyError(f"Start vertex is not in the graph") #try concationation
+      if end not in self._adjacency_list:
+        raise KeyError("End vertex is not in the graph") # here too
+
+      self._adjacency_list[start].append(Edge(end, weight))
 
 
     def get_nodes(self):
-        nodes = []
-        if len(self.nodes)>0:
-            for node in self.nodes:
-                nodes.append(node.head.value)
-            return nodes
+        if len(self._adjacency_list) > 0:
+            return self._adjacency_list.keys()
         else:
             return None
 
-    def get_neighbors(self, node_in):
-        neighbors = []
-        for node in self.nodes:
-            if node.head.value == node_in:
-                current = node.head
-                neighbors.append(current.value)
-                for edge in current.edges:
-                    neighbors.append([str(edge[0]),edge[1]])
-        return neighbors
+
+    def get_neighbors(self, vertex):
+      return self._adjacency_list.get(vertex, [])
 
     def size(self):
-        return len(self.nodes)
+        return len(self._adjacency_list)
 
 
+    def breadth_first_search(self, start_vertex, action=(lambda x: None)):
+      queue = Queue()
+      visited = set()
+      queue.enqueue(start_vertex)
+      visited.add(start_vertex)
+      while len(queue):
+        current_vertex = queue.dequeue()
+        action(current_vertex)
+        neighbors = self.get_neighbors(current_vertex)
 
+        for edges in neighbors:
+          neighbor_vertex = edges.vertex
 
+          if neighbor_vertex in visited:
+            continue
+
+          else:
+            visited.add(neighbor_vertex)
+          queue.enqueue(neighbor_vertex)
 
 
 
 if __name__ == '__main__':
-    # ll = Linked_List()
-    # ll.append(2)
-    # ll.append(8)
-    # ll.append(3)
-    # ll.append(1)
-    # ll.append(7)
-    # ll.append(9)
-    # ll.append(11)
-    # ll.append(10)
-    # print(ll)
-    # for node in ll:
-    #     print(node)
-    aj_list = Graph()
-    aj_list.add_node('a')
-    aj_list.add_node('b')
-    aj_list.add_node('c')
-    aj_list.add_node('d')
-    aj_list.add_node('e')
-    aj_list.add_node('f')
-    aj_list.add_edge('a','c')
-    aj_list.add_edge('a','d')
-    aj_list.add_edge('b','c')
-    aj_list.add_edge('b','f')
-    aj_list.add_edge('c','e')
-    aj_list.add_edge('d','e')
-    aj_list.add_edge('e','f')
-    print(aj_list.get_nodes())
-    print(aj_list.get_neighbors('a'))
-    print(aj_list.get_neighbors('b'))
-    print(aj_list.get_neighbors('c'))
-    print(aj_list.get_neighbors('d'))
-    print(aj_list.get_neighbors('e'))
-    print(aj_list.get_neighbors('f'))
-    print(aj_list.size())
+    g = Graph()
+    node1 = g.add_node('node1')
+    node2 = g.add_node('node2')
+    node3 = g.add_node('node3')
+    print()
+    g.add_edge(node1, node2)
+    g.add_edge(node1, node3)
+
+    g.breadth_first_search(node1, lambda v: print(v.value))
+
+
+    # print(.vertex)

@@ -1,52 +1,51 @@
-from abc import ABC
 from Data_Structures.graph.graph import Graph
 import pytest
 
 def test_add_node():
     graph = Graph()
-    actual = str(graph.add_node('a'))
+    actual = graph.add_node('a')
     expected = 'a'
-    assert actual == expected
+    assert expected == actual.value
 
 def test_add_edge():
     graph = Graph()
-    graph.add_node("a")
-    graph.add_node("b")
-    graph.add_edge("a", "b")
-    edge = graph.nodes[0].head.edges[0]
-    actual = [str(edge[0]), edge[1]]
-    expected = ['b', 1]
+    node1 = graph.add_node("a")
+    node2 = graph.add_node("b")
+    graph.add_edge(node1, node2)
+    actual = graph.get_neighbors(node1)[0].vertex.value
+    expected = "b"
     assert actual == expected
 
 def test_get_nodes(graph):
-    actual = graph.get_nodes()
+    nodes = []
+    for node in graph[0].get_nodes():
+        nodes.append(node.value)
+    actual = nodes
     expected = ['a','b','c','d','e','f']
     assert actual == expected
 
 def test_neighbors(graph):
-    actual = graph.get_neighbors('a')
-    expected = ['a', ['c', 1], ['d', 1]]
+    lst = []
+    for neighbor in graph[0].get_neighbors(graph[1]):
+        lst.append(neighbor.vertex.value)
+    actual = lst
+    expected = ['c', 'd']
     assert actual == expected
 
 
 def test_neighbors_with_weight(graph):
-    actual = graph.get_neighbors('b')
-    expect = ['b', ['c', 1], ['f', 5]]
+    lst = []
+    for neighbor in graph[0].get_neighbors(graph[2]):
+        lst.append(neighbor.vertex.value)
+    actual = lst
+    expect = ['c', 'f']
     assert actual == expect
 
 
 def test_size(graph):
-    actual = graph.size()
+    actual = graph[0].size()
     expected = 6
     assert actual == expected
-
-def test_one_node():
-    graph = Graph()
-    graph.add_node('a')
-    graph.add_edge('a')
-    actual = graph.get_neighbors('a')
-    expect = ['a', ['None', 0]]
-    assert actual == expect
 
 
 def test_empty_graph():
@@ -58,18 +57,18 @@ def test_empty_graph():
 @pytest.fixture
 def graph():
     aj_list = Graph()
-    aj_list.add_node('a')
-    aj_list.add_node('b')
-    aj_list.add_node('c')
-    aj_list.add_node('d')
-    aj_list.add_node('e')
-    aj_list.add_node('f')
-    aj_list.add_edge('a','c')
-    aj_list.add_edge('a','d')
-    aj_list.add_edge('b','c')
-    aj_list.add_edge('b','f', 5)
-    aj_list.add_edge('c','e')
-    aj_list.add_edge('d','e')
-    aj_list.add_edge('e','f')
+    node1 = aj_list.add_node('a')
+    node2 = aj_list.add_node('b')
+    node3 = aj_list.add_node('c')
+    node4 = aj_list.add_node('d')
+    node5 = aj_list.add_node('e')
+    node6 = aj_list.add_node('f')
+    aj_list.add_edge(node1,node3)
+    aj_list.add_edge(node1,node4)
+    aj_list.add_edge(node2,node3)
+    aj_list.add_edge(node2,node6, [5])
+    aj_list.add_edge(node3,node5)
+    aj_list.add_edge(node4,node5)
+    aj_list.add_edge(node5,node6)
 
-    return aj_list
+    return [aj_list, node1, node2, node3, node4, node5, node6]

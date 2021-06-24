@@ -21,3 +21,4 @@
 |HashTable|[HashTable](python/Data_Structures/hashtable)|
 |Repeated word|[Repeated](python/code_challenges/repeated_word)|
 |Tree Intersection|[Intersection](python/code_challenges/tree_intersection)|
+|Graph|[Graph](python/Data_Structures/graph)|
