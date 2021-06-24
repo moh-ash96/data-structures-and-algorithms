@@ -87,16 +87,3 @@ class Graph():
 
 
 
-if __name__ == '__main__':
-    g = Graph()
-    node1 = g.add_node('node1')
-    node2 = g.add_node('node2')
-    node3 = g.add_node('node3')
-    print()
-    g.add_edge(node1, node2)
-    g.add_edge(node1, node3)
-
-    g.breadth_first_search(node1, lambda v: print(v.value))
-
-
-    # print(.vertex)

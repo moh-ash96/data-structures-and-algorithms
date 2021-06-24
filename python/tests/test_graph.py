@@ -36,9 +36,9 @@ def test_neighbors(graph):
 def test_neighbors_with_weight(graph):
     lst = []
     for neighbor in graph[0].get_neighbors(graph[2]):
-        lst.append(neighbor.vertex.value)
+        lst.append([neighbor.vertex.value, neighbor.weight] )
     actual = lst
-    expect = ['c', 'f']
+    expect = [['c', 0], ['f', [5]]]
     assert actual == expect
 
 
