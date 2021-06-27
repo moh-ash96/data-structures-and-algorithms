@@ -1,55 +1,59 @@
 from collections import deque
 
-class Vertex():
+
+class Vertex:
     def __init__(self, value):
         self.value = value
 
     # def __str__(self):
     #     return f"{self.value}"
 
+
 class Edge:
-  def __init__(self, vertex, weight):
-    self.vertex = vertex
-    self.weight = weight
+    def __init__(self, vertex, weight):
+        self.vertex = vertex
+        self.weight = weight
 
-class Queue():
-  def __init__(self):
-    self.dq = deque()
 
-  def enqueue(self, value):
-    self.dq.appendleft(value)
+class Queue:
+    def __init__(self):
+        self.dq = deque()
 
-  def dequeue(self):
-    return self.dq.pop()
+    def enqueue(self, value):
+        self.dq.appendleft(value)
 
-  def __len__(self):
-    return len(self.dq)
+    def dequeue(self):
+        return self.dq.pop()
 
-class Stack():
-  pass #we can use dq for that
+    def __len__(self):
+        return len(self.dq)
 
-class Graph():
 
+class Stack:
+    pass  # we can use dq for that
+
+
+class Graph:
     def __init__(self):
         self._adjacency_list = {}
-
 
     def add_node(self, value):
         v = Vertex(value)
         self._adjacency_list[v] = []
         return v
 
+    def add_edge(self, start, end=None, weight=0):
 
+        if start not in self._adjacency_list:
+            raise KeyError(f"Start vertex is not in the graph")  # try concationation
+        if end not in self._adjacency_list:
+            raise KeyError("End vertex is not in the graph")  # here too
 
-    def add_edge(self, start, end=None, weight = 0):
-
-      if start not in self._adjacency_list:
-        raise KeyError(f"Start vertex is not in the graph") #try concationation
-      if end not in self._adjacency_list:
-        raise KeyError("End vertex is not in the graph") # here too
-
-      self._adjacency_list[start].append(Edge(end, weight))
-
+        # self._adjacency_list[start].append(Edge(end, weight))
+        edge = Edge(vertex=end,weight=weight)
+        self._adjacency_list[start].append(edge)
+        edge = Edge(vertex=start,weight=weight)
+        self._adjacency_list[end].append(edge)
 
     def get_nodes(self):
         if len(self._adjacency_list) > 0:
@@ -57,13 +61,11 @@ class Graph():
         else:
             return None
 
-
     def get_neighbors(self, vertex):
-      return self._adjacency_list.get(vertex, [])
+        return self._adjacency_list.get(vertex, [])
 
     def size(self):
         return len(self._adjacency_list)
-
 
     def breadth_first_search(self, start_vertex, action=(lambda x: None)):
       queue = Queue()
@@ -85,5 +87,25 @@ class Graph():
             visited.add(neighbor_vertex)
           queue.enqueue(neighbor_vertex)
 
+    def breadth_first_traverse(self, node):
 
+            queue = Queue()
+            queue.enqueue(node)
+            visited = set()
+            visited.add(node)
+            output = []
 
+            def inner(node):
+                for i in range(len(queue)):
+                    node = queue.dequeue()
+                    output.append(node)
+                    neighbors = self.get_neighbors(node)
+                    for i in neighbors:
+                        if i.vertex not in visited:
+                            queue.enqueue(i.vertex)
+                            visited.add(i.vertex)
+                if len(queue) > 0:
+                    inner(node)
+
+            inner(node)
+            return output
