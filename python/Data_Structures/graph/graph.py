@@ -65,25 +65,39 @@ class Graph():
         return len(self._adjacency_list)
 
 
-    def breadth_first_search(self, start_vertex, action=(lambda x: None)):
-      queue = Queue()
-      visited = set()
-      queue.enqueue(start_vertex)
-      visited.add(start_vertex)
-      while len(queue):
-        current_vertex = queue.dequeue()
-        action(current_vertex)
-        neighbors = self.get_neighbors(current_vertex)
+    # def breadth_first_search(self, start_vertex, action=(lambda x: None)):
+    #   queue = Queue()
+    #   visited = set()
+    #   queue.enqueue(start_vertex)
+    #   visited.add(start_vertex)
+    #   while len(queue):
+    #     current_vertex = queue.dequeue()
+    #     action(current_vertex)
+    #     neighbors = self.get_neighbors(current_vertex)
 
-        for edges in neighbors:
-          neighbor_vertex = edges.vertex
+    #     for edges in neighbors:
+    #       neighbor_vertex = edges.vertex
 
-          if neighbor_vertex in visited:
-            continue
+    #       if neighbor_vertex in visited:
+    #         continue
 
-          else:
-            visited.add(neighbor_vertex)
-          queue.enqueue(neighbor_vertex)
+    #       else:
+    #         visited.add(neighbor_vertex)
+    #       queue.enqueue(neighbor_vertex)
 
+
+
+    def breadth_first_search(self, start_vertex):
+        output = []
+        queue = []
+        def inner(node):
+        # print('hi')
+            if node not in queue:
+                queue.append(node)
+                output.append(node.value)
+            for i in self.get_neighbors(node):
+                inner(i.vertex)
+        inner(start_vertex)
+        return output
 
 
