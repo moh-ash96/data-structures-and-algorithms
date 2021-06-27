@@ -12,7 +12,7 @@
 |Stacks and Queues|[Stacks & Queues](python/Data_Structures/stacks_and_queues/)|
 |Queue With Stacks |[Queue With Stacks](python/code_challenges/queue_with_stacks)|
 |Animal shelter|[Animal Shelter](python/code_challenges/fifo_animal_shelter/)|
-|Multi Bracket Validation|[Multi Bracket Validation](python/code_challenges/multi-bracket-validation/)|
+|Multi Bracket Validation|[Multi Bracket Validation](python/code_challenges/multi_bracket_validation/)|
 |Tree|[Tree](python/code_challenges/tree/)|
 |Fizz_Buzz|[fizz](python/code_challenges/fizz_buzz_tree)|
 |Insertion_Sort|[Insertion Sort](python/code_challenges/insertion_sort)|
