@@ -10,7 +10,7 @@ Given a business trip itinerary, I should check for the total cost of direct tri
 
 ### Approach
 
-I used recursive to go through the input cities, and checked for their neighbors, then I returned the sum of the weights of their edges.
+I used for loop to go through the input cities, and checked for their neighbors, then I returned the sum of the weights of their edges.
 
 ### Big O
 
