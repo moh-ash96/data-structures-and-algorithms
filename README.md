@@ -22,5 +22,6 @@
 |Repeated word|[Repeated](python/code_challenges/repeated_word)|
 |Tree Intersection|[Intersection](python/code_challenges/tree_intersection)|
 |Graph|[Graph](python/Data_Structures/graph)|
-|Breadth First Graph|[Breadth_first](python/Data_Structures/graph/Breadth_README.md)
-|Business Trip|[Business Trip](python/code_challenges/business_trip)
+|Breadth First Graph|[Breadth_first](python/Data_Structures/graph/Breadth_README.md)|
+|Business Trip|[Business Trip](python/code_challenges/business_trip)|
+|Graph Depth First|[Depth first](python/Data_Structures/graph/Depth_README.md)|
