@@ -109,3 +109,19 @@ class Graph:
 
             inner(node)
             return output
+
+    def depth_first(self):
+        if not self.get_nodes():
+            return []
+        else:
+            root = list(self.get_nodes())[0]
+            output = []
+            def inner(node, output):
+                if node not in output:
+                    output.append(node)
+                for edge in self.get_neighbors(node):
+                    if edge.vertex not in output:
+                        output.append(edge.vertex)
+                        inner(edge.vertex, output)
+            inner(root, output)
+            return output
