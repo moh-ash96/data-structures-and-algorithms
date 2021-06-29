@@ -12,11 +12,25 @@ The Challenge is to implement a depth-first traversal on a graph.
 
 I used a traversal method, get_nodes, and get_neighbors
 
-### Big O of N
+### Big O Notation
 
 * Time: O(V + E)
 * Space: O(V)
 
 ## Solution
 
-The function takes the first node of an input graph, adds it to the output list, then goes to its neighbor, then the neighbor of the neighbor, and so on, using recursion pushing each of them to the output list, so the list will be returned in it's depth-first order.
+### To return the preorder Depth-first of the graph nodes
+* Use `graph.depth_first()` function
+### To return the values of the graph in preorder depth in a list
+* Declare an empty list
+* loop over the nodes and push their values to the empty list.
+* return the list
+
+```python
+def get_values(graph):
+    values = []
+    for node in graph.depth_first():
+        values.append(node.value)
+    return values
+```
+[Code file](graph.py)
